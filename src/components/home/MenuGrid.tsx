@@ -13,38 +13,41 @@ import {
 } from "lucide-react";
 
 const menuItems = [
-  { path: "/find-donor", icon: Search, label: "ডোনার খুঁজুন", color: "bg-red-50" },
-  { path: "/become-donor", icon: UserPlus, label: "ডোনার হন", color: "bg-pink-50" },
-  { path: "/volunteer", icon: Users, label: "স্বেচ্ছাসেবক", color: "bg-orange-50" },
-  { path: "/donation", icon: Heart, label: "অনুদান", color: "bg-rose-50" },
-  { path: "/hospitals", icon: Building2, label: "হাসপাতাল", color: "bg-blue-50" },
-  { path: "/first-aid", icon: Cross, label: "প্রাথমিক চিকিৎসা", color: "bg-green-50" },
-  { path: "/certificate", icon: Award, label: "সার্টিফিকেট", color: "bg-amber-50" },
-  { path: "/notice", icon: Bell, label: "নোটিশ", color: "bg-purple-50" },
-  { path: "/emergency", icon: AlertCircle, label: "জরুরি", color: "bg-red-100" },
-  { path: "/about", icon: Info, label: "আমাদের সম্পর্কে", color: "bg-slate-50" },
+  { path: "/find-donor", icon: Search, label: "ডোনার খুঁজুন", gradient: "from-red-500 to-red-600" },
+  { path: "/become-donor", icon: UserPlus, label: "ডোনার হন", gradient: "from-pink-500 to-pink-600" },
+  { path: "/volunteer", icon: Users, label: "স্বেচ্ছাসেবক", gradient: "from-orange-500 to-orange-600" },
+  { path: "/donation", icon: Heart, label: "অনুদান", gradient: "from-rose-500 to-rose-600" },
+  { path: "/hospitals", icon: Building2, label: "হাসপাতাল", gradient: "from-blue-500 to-blue-600" },
+  { path: "/first-aid", icon: Cross, label: "প্রাথমিক চিকিৎসা", gradient: "from-green-500 to-green-600" },
+  { path: "/certificate", icon: Award, label: "সার্টিফিকেট", gradient: "from-amber-500 to-amber-600" },
+  { path: "/notice", icon: Bell, label: "নোটিশ", gradient: "from-purple-500 to-purple-600" },
+  { path: "/emergency", icon: AlertCircle, label: "জরুরি", gradient: "from-red-600 to-red-700" },
+  { path: "/about", icon: Info, label: "আমাদের সম্পর্কে", gradient: "from-slate-500 to-slate-600" },
 ];
 
 const MenuGrid = () => {
   return (
-    <div className="grid-menu px-4">
-      {menuItems.map((item) => {
-        const Icon = item.icon;
-        return (
-          <Link
-            key={item.path}
-            to={item.path}
-            className="menu-item"
-          >
-            <div className={`menu-item-icon ${item.color}`}>
-              <Icon className="w-6 h-6 text-primary" />
-            </div>
-            <span className="text-sm font-medium text-foreground text-center">
-              {item.label}
-            </span>
-          </Link>
-        );
-      })}
+    <div className="px-4">
+      <h2 className="section-title">সেবাসমূহ</h2>
+      <div className="grid-menu">
+        {menuItems.map((item) => {
+          const Icon = item.icon;
+          return (
+            <Link
+              key={item.path}
+              to={item.path}
+              className="menu-item"
+            >
+              <div className={`menu-item-icon bg-gradient-to-br ${item.gradient}`}>
+                <Icon className="w-7 h-7 text-white" />
+              </div>
+              <span className="text-sm font-medium text-foreground text-center">
+                {item.label}
+              </span>
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 };
