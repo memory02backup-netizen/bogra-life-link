@@ -4,32 +4,36 @@ const socialLinks = [
   {
     href: "https://www.facebook.com/bobdo.official",
     icon: Facebook,
-    label: "Facebook Page",
+    label: "পেজ",
     color: "bg-blue-500",
+    shadowColor: "shadow-blue-500/30",
   },
   {
     href: "https://www.facebook.com/groups/BOBO.BD",
     icon: Users,
-    label: "Facebook Group",
+    label: "গ্রুপ",
     color: "bg-blue-600",
+    shadowColor: "shadow-blue-600/30",
   },
   {
     href: "mailto:bobdo.bd@gmail.com",
     icon: Mail,
-    label: "Email",
+    label: "ইমেইল",
     color: "bg-red-500",
+    shadowColor: "shadow-red-500/30",
   },
   {
     href: "https://www.youtube.com/@BOBDO",
     icon: Youtube,
-    label: "YouTube",
+    label: "ইউটিউব",
     color: "bg-red-600",
+    shadowColor: "shadow-red-600/30",
   },
 ];
 
 const SocialLinks = () => {
   return (
-    <div className="flex justify-center gap-4 px-4">
+    <div className="flex justify-center gap-3 px-4">
       {socialLinks.map((link) => {
         const Icon = link.icon;
         return (
@@ -38,10 +42,12 @@ const SocialLinks = () => {
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
-            className={`w-12 h-12 rounded-full ${link.color} flex items-center justify-center text-white transition-transform active:scale-95`}
-            aria-label={link.label}
+            className="social-btn bg-card"
           >
-            <Icon className="w-5 h-5" />
+            <div className={`social-btn-icon ${link.color} shadow-lg ${link.shadowColor}`}>
+              <Icon className="w-6 h-6" />
+            </div>
+            <span className="text-xs font-medium text-foreground">{link.label}</span>
           </a>
         );
       })}
